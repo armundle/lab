@@ -196,6 +196,13 @@ object Workbook extends App{
       case (_, Nil) => Nil
       case (Cons(h1, t1), Cons(h2, t2)) => Cons(h1 + h2, addPairWise(t1, t2))
     }
+
+    def zipWith[A, B, C](as: List[A], bs: List[B])(f: (A, B) => C): List[C] =
+      (as, bs) match {
+        case (Nil, _) => Nil
+        case (_, Nil) => Nil
+        case (Cons(h1, t1), Cons(h2, t2)) => Cons(f(h1, h2), zipWith(t1, t2)(f))
+      }
   }
 
   import List._
@@ -222,4 +229,5 @@ object Workbook extends App{
   showList(concat(List(List("a"), List("b", "C")))); printSeparator
   showList(filter(List(1, 2, 3, 4, 5))(x => x % 2 == 0)); printSeparator
   showList(addPairWise(List(1, 2, 3), List(4, 5, 6))); printSeparator
+  showList(zipWith(List(1, 2, 3), List(4, 5, 6))(_+_))
 }
