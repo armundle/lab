@@ -190,6 +190,12 @@ object Workbook extends App{
       concat(map(as)(f))
       // Why does this implementation not work??
       //concat(foldRight(as, Nil: List[B])((h, t) => (Cons(f(h), t))))
+
+    def addPairWise(a: List[Int], b: List[Int]): List[Int] = (a, b) match {
+      case (Nil, _) => Nil
+      case (_, Nil) => Nil
+      case (Cons(h1, t1), Cons(h2, t2)) => Cons(h1 + h2, addPairWise(t1, t2))
+    }
   }
 
   import List._
@@ -214,4 +220,5 @@ object Workbook extends App{
   showList(doubleToString(List(1, 2, 3)))
   showList(concat(List(List("a"), List("b", "C"))))
   showList(filter(List(1, 2, 3, 4, 5))(x => x % 2 == 0))
+  showList(addPairWise(List(1, 2, 3), List(4, 5, 6)))
 }
