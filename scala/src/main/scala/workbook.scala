@@ -200,25 +200,26 @@ object Workbook extends App{
 
   import List._
 
+  def printSeparator: Unit = println("--")
   val l = List(1, 2, 3, 4, 5, 6)
-  println(tail(l))
-  println(setHead(l, -10))
-  println(l)
-  println(drop(l, 1))
-  println(dropWhile(l)(x => x < 4))
-  println(init(l))
-  println(sumR(l))
-  println(productR(l))
-  println(lengthR(l))
-  println(sumL(l))
-  println(productL(l))
-  println(lengthL(l))
-  showList(reverse(l))
-  println("append")
-  showList(append(List(1, 2, 3), List(10, 20, 30)))
-  showList(addOne(List(1, 2, 3)))
-  showList(doubleToString(List(1, 2, 3)))
-  showList(concat(List(List("a"), List("b", "C"))))
-  showList(filter(List(1, 2, 3, 4, 5))(x => x % 2 == 0))
-  showList(addPairWise(List(1, 2, 3), List(4, 5, 6)))
+  println(tail(l)); printSeparator
+  println(setHead(l, -10)); printSeparator
+  println(l); printSeparator
+  println(drop(l, 1)); printSeparator
+  println(dropWhile(l)(x => x < 4)); printSeparator
+  println(init(l)); printSeparator
+  println(sumR(l)); printSeparator
+  println(productR(l)); printSeparator
+  println(lengthR(l)); printSeparator
+  println(sumL(l)); printSeparator
+  println(productL(l)); printSeparator
+  println(lengthL(l)); printSeparator
+  showList(reverse(l)); printSeparator
+  println("append"); printSeparator
+  showList(append(List(1, 2, 3), List(10, 20, 30))); printSeparator
+  showList(addOne(List(1, 2, 3))); printSeparator
+  showList(doubleToString(List(1, 2, 3))); printSeparator
+  showList(concat(List(List("a"), List("b", "C")))); printSeparator
+  showList(filter(List(1, 2, 3, 4, 5))(x => x % 2 == 0)); printSeparator
+  showList(addPairWise(List(1, 2, 3), List(4, 5, 6))); printSeparator
 }
